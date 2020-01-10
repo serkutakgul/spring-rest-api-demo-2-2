@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Banka Sistemi</title>
+</head>
+<body>
+<div class="container">
+
+<p class="h4 mb-4">Borçlu Öğrenciler</p>
+
+		<table class="table table-sm table-hover table-bordered table-striped">
+		<thead class="thead-dark">
+				<tr>
+					<th>Ögrenci No</th>
+					
+					<th>Borç Durumu</th>
+					<th/>
+				</tr>
+			</thead>
+			<th:block th:each="brc : ${borcList}">
+				<tr>
+					<td th:text="${brc.oNo}">...</td>
+					<td th:text="${brc.borcDurumu}" />
+					<td>
+						<a th:href="@{'/bank/odendi/' + ${brc.oNo}}" type="submit"
+		class="btn btn-primary btn-sm mb-3">Öde</a>
+		
+	
+					</td>
+				</tr>
+
+
+			</th:block>
+		</table>
+
+
+
+
+		</form>
+</div>
+</body>
+</html>
